@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found | Quickfolio{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <p class="eyebrow">Error 404</p>
+    <h1>This folder appears to be empty.</h1>
+
+    <a href="{{ url_for('home') }}">
+        Return to the homepage
+    </a>
+</section>
+{% endblock %}

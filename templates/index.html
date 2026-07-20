@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Quickfolio | Home{% endblock %}
+
+{% block content %}
+<section class="welcome">
+    <p class="eyebrow">Creative Developer Portfolio</p>
+
+    <h1>Welcome to my Quickfolio.</h1>
+
+    <p class="introduction">
+        This is the beginning of a playful, project-focused portfolio
+        built with Python and Flask.
+    </p>
+
+    <div class="folder-list">
+        <button class="folder" type="button">
+            <span class="folder-icon" aria-hidden="true">📁</span>
+            <span>About Me</span>
+        </button>
+
+        <button class="folder" type="button">
+            <span class="folder-icon" aria-hidden="true">📁</span>
+            <span>Selected Work</span>
+        </button>
+
+        <button class="folder" type="button">
+            <span class="folder-icon" aria-hidden="true">📁</span>
+            <span>Contact Me</span>
+        </button>
+    </div>
+</section>
+{% endblock %}
