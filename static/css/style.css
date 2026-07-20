@@ -111,3 +111,129 @@ h1 {
         min-height: 140px;
     }
 }
+.folder {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.folder small {
+    display: block;
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+.projects-section {
+    width: min(1100px, calc(100% - 40px));
+    margin-inline: auto;
+    padding-block: 100px;
+}
+
+.section-heading {
+    max-width: 800px;
+    margin-bottom: 48px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.project-card {
+    min-height: 360px;
+    padding: 28px;
+    border: 2px solid var(--border);
+    border-top: 12px solid var(--project-accent);
+    border-radius: 16px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    margin-block: 40px 16px;
+    font-size: 2rem;
+}
+
+.project-card > p:not(.project-meta) {
+    line-height: 1.6;
+}
+
+.project-card > a {
+    margin-top: auto;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.project-meta {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-detail {
+    width: min(1100px, calc(100% - 40px));
+    margin-inline: auto;
+    padding-block: 40px 100px;
+}
+
+.back-link {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.project-header {
+    margin-top: 60px;
+    padding: 48px;
+    border: 2px solid var(--border);
+    border-top: 14px solid var(--project-accent);
+    border-radius: 18px;
+    background: white;
+}
+
+.project-summary {
+    max-width: 700px;
+    margin-top: 28px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.project-information {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-block: 64px;
+}
+
+.project-information p,
+.technology-list {
+    line-height: 1.7;
+}
+
+.technology-list {
+    padding-left: 20px;
+}
+
+@media (max-width: 800px) {
+    .project-grid,
+    .project-information {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: 300px;
+    }
+
+    .project-header {
+        padding: 28px;
+    }
+}

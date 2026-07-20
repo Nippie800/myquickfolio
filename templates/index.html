@@ -19,15 +19,46 @@
             <span>About Me</span>
         </button>
 
-        <button class="folder" type="button">
-            <span class="folder-icon" aria-hidden="true">📁</span>
-            <span>Selected Work</span>
-        </button>
+        <a class="folder" href="#selected-work">
+    <span class="folder-icon" aria-hidden="true">📁</span>
+
+    <span>
+        <strong>Selected Work</strong>
+        <small>Explore my latest projects</small>
+    </span>
+</a>
 
         <button class="folder" type="button">
             <span class="folder-icon" aria-hidden="true">📁</span>
             <span>Contact Me</span>
         </button>
+    </div>
+</section>
+<section class="projects-section" id="selected-work">
+    <header class="section-heading">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Projects made with thought and curiosity.</h2>
+    </header>
+
+    <div class="project-grid">
+        {% for project in projects %}
+            <article
+                class="project-card"
+                style="--project-accent: {{ project.accent }}"
+            >
+                <p class="project-meta">
+                    {{ project.category }} · {{ project.year }}
+                </p>
+
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.summary }}</p>
+
+                <a href="{{ url_for('project_detail', slug=project.slug) }}">
+                    View project
+                    <span aria-hidden="true">→</span>
+                </a>
+            </article>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

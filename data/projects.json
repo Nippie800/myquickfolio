@@ -1,1 +1,49 @@
-[]
+[
+    {
+        "slug": "quickfolio",
+        "title": "Quickfolio",
+        "category": "Web Development",
+        "year": "2026",
+        "summary": "A playful portfolio experience built with Python and Flask.",
+        "description": "Quickfolio presents selected work through an interactive, folder-inspired interface.",
+        "role": "Designer and Developer",
+        "technologies": [
+            "Python",
+            "Flask",
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "accent": "#ff5c35"
+    },
+    {
+        "slug": "creative-dashboard",
+        "title": "Creative Dashboard",
+        "category": "Product Design",
+        "year": "2025",
+        "summary": "A focused dashboard that turns complex information into clear actions.",
+        "description": "This project explores clear information hierarchy, reusable interface components, and responsive data presentation.",
+        "role": "Product Designer and Frontend Developer",
+        "technologies": [
+            "Python",
+            "Flask",
+            "JavaScript"
+        ],
+        "accent": "#4a8cff"
+    },
+    {
+        "slug": "automation-toolkit",
+        "title": "Automation Toolkit",
+        "category": "Python Development",
+        "year": "2025",
+        "summary": "A collection of tools for reducing repetitive everyday work.",
+        "description": "The toolkit uses Python to transform repetitive manual processes into dependable automated workflows.",
+        "role": "Python Developer",
+        "technologies": [
+            "Python",
+            "APIs",
+            "Automation"
+        ],
+        "accent": "#f2c94c"
+    }
+]

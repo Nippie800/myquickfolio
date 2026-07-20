@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} | Quickfolio{% endblock %}
+
+{% block content %}
+<article class="project-detail">
+    <a class="back-link" href="{{ url_for('home') }}#selected-work">
+        ← Back to selected work
+    </a>
+
+    <header
+        class="project-header"
+        style="--project-accent: {{ project.accent }}"
+    >
+        <p class="eyebrow">
+            {{ project.category }} · {{ project.year }}
+        </p>
+
+        <h1>{{ project.title }}</h1>
+
+        <p class="project-summary">
+            {{ project.summary }}
+        </p>
+    </header>
+
+    <section class="project-information">
+        <div>
+            <h2>Overview</h2>
+            <p>{{ project.description }}</p>
+        </div>
+
+        <div>
+            <h2>My role</h2>
+            <p>{{ project.role }}</p>
+        </div>
+
+        <div>
+            <h2>Technologies</h2>
+
+            <ul class="technology-list">
+                {% for technology in project.technologies %}
+                    <li>{{ technology }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</article>
+{% endblock %}
