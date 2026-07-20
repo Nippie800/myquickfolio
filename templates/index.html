@@ -1,64 +1,99 @@
 {% extends "base.html" %}
 
-{% block title %}Quickfolio | Home{% endblock %}
+{% block title %}Quickfolio | Creative Developer{% endblock %}
 
 {% block content %}
-<section class="welcome">
-    <p class="eyebrow">Creative Developer Portfolio</p>
-
-    <h1>Welcome to my Quickfolio.</h1>
-
-    <p class="introduction">
-        This is the beginning of a playful, project-focused portfolio
-        built with Python and Flask.
-    </p>
-
-    <div class="folder-list">
-        <button class="folder" type="button">
-            <span class="folder-icon" aria-hidden="true">📁</span>
-            <span>About Me</span>
-        </button>
-
-        <a class="folder" href="#selected-work">
-    <span class="folder-icon" aria-hidden="true">📁</span>
-
-    <span>
-        <strong>Selected Work</strong>
-        <small>Explore my latest projects</small>
-    </span>
-</a>
-
-        <button class="folder" type="button">
-            <span class="folder-icon" aria-hidden="true">📁</span>
-            <span>Contact Me</span>
-        </button>
+<section class="hero page-section" id="home" data-section="Home" aria-labelledby="hero-title">
+    <div class="hero__copy">
+        <p class="eyebrow reveal-item">Python-powered creative portfolio</p>
+        <h1 id="hero-title" class="reveal-item">Useful ideas,<br><em>made alive.</em></h1>
+        <p class="hero__intro reveal-item">
+            I design and build thoughtful digital experiences where useful technology
+            meets playful interaction.
+        </p>
     </div>
+
+    <div class="hero__note reveal-item" aria-label="Availability">
+        <span class="status-dot" aria-hidden="true"></span>
+        Available for thoughtful collaborations
+    </div>
+
+    <nav class="folder-list reveal-item" aria-label="Portfolio sections">
+        <a class="folder folder--blue" href="#about">
+            <span class="folder__number">01</span>
+            <span class="folder__icon" aria-hidden="true"><span></span></span>
+            <span class="folder__copy"><strong>About me</strong><small>The person behind the pixels</small></span>
+        </a>
+
+        <a class="folder folder--red" href="#selected-work">
+            <span class="folder__number">02</span>
+            <span class="folder__icon" aria-hidden="true"><span></span></span>
+            <span class="folder__copy"><strong>Selected work</strong><small>Projects, process and outcomes</small></span>
+        </a>
+
+        <a class="folder folder--yellow" href="#contact">
+            <span class="folder__number">03</span>
+            <span class="folder__icon" aria-hidden="true"><span></span></span>
+            <span class="folder__copy"><strong>Contact me</strong><small>Let’s make something memorable</small></span>
+        </a>
+    </nav>
+
+    <a class="scroll-cue" href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
 </section>
-<section class="projects-section" id="selected-work">
+
+<section class="about-section page-section" id="about" data-section="About" aria-labelledby="about-title">
+    <div class="section-kicker"><span>01</span><p>About the maker</p></div>
+
+    <div class="about-section__content">
+        <h2 id="about-title">I turn complex ideas into experiences that feel <em>clear and human.</em></h2>
+        <div class="about-section__body">
+            <p>I’m a creative developer who enjoys moving between design and code. My work combines practical problem-solving with strong visual thinking.</p>
+            <p>This portfolio is also part of the story: a Python application wrapped in a playful interface, built openly and improved one thoughtful detail at a time.</p>
+        </div>
+    </div>
+
+    <ul class="skill-strip" aria-label="Core skills">
+        <li>Python</li><li>Flask</li><li>Interface design</li><li>JavaScript</li><li>Creative technology</li>
+    </ul>
+</section>
+
+<section class="projects-section page-section" id="selected-work" data-section="Work" aria-labelledby="work-title">
+    <div class="section-kicker"><span>02</span><p>Selected work</p></div>
+
     <header class="section-heading">
-        <p class="eyebrow">Selected Work</p>
-        <h2>Projects made with thought and curiosity.</h2>
+        <h2 id="work-title">Projects made with<br><em>thought and curiosity.</em></h2>
+        <p>Select a project window to see the thinking behind the outcome.</p>
     </header>
 
     <div class="project-grid">
         {% for project in projects %}
-            <article
-                class="project-card"
-                style="--project-accent: {{ project.accent }}"
-            >
-                <p class="project-meta">
-                    {{ project.category }} · {{ project.year }}
-                </p>
-
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.summary }}</p>
-
-                <a href="{{ url_for('project_detail', slug=project.slug) }}">
-                    View project
-                    <span aria-hidden="true">→</span>
-                </a>
+            <article class="project-card project-card--{{ project.theme }}">
+                <div class="project-card__bar">
+                    <span class="project-card__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span>{{ "%02d" | format(loop.index) }}</span>
+                </div>
+                <div class="project-card__preview" aria-hidden="true">
+                    <span class="preview-label">{{ project.category }}</span>
+                    <strong>{{ project.title }}</strong>
+                </div>
+                <div class="project-card__content">
+                    <p class="project-meta">{{ project.category }} · {{ project.year }}</p>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.summary }}</p>
+                    <a class="text-link" href="{{ url_for('project_detail', slug=project.slug) }}">Open project <span aria-hidden="true">↗</span></a>
+                </div>
             </article>
         {% endfor %}
+    </div>
+</section>
+
+<section class="contact-section page-section" id="contact" data-section="Contact" aria-labelledby="contact-title">
+    <div class="section-kicker section-kicker--light"><span>03</span><p>Contact</p></div>
+    <div class="contact-section__content">
+        <p class="eyebrow">Have an idea worth building?</p>
+        <h2 id="contact-title">Let’s make something<br><em>worth remembering.</em></h2>
+        <p>For now, the best place to follow the work or start a conversation is GitHub.</p>
+        <a class="contact-button" href="https://github.com/Nippie800" target="_blank" rel="noopener noreferrer">Visit GitHub <span aria-hidden="true">↗</span></a>
     </div>
 </section>
 {% endblock %}

@@ -8,10 +8,7 @@
         ← Back to selected work
     </a>
 
-    <header
-        class="project-header"
-        style="--project-accent: {{ project.accent }}"
-    >
+    <header class="project-header project-header--{{ project.theme }}">
         <p class="eyebrow">
             {{ project.category }} · {{ project.year }}
         </p>
@@ -37,11 +34,11 @@
         <div>
             <h2>Technologies</h2>
 
-            <ul class="technology-list">
+            <div class="technology-list" role="list">
                 {% for technology in project.technologies %}
-                    <li>{{ technology }}</li>
+                    <span role="listitem">{{ technology }}</span>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </section>
 </article>

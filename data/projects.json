@@ -14,7 +14,7 @@
             "CSS",
             "JavaScript"
         ],
-        "accent": "#ff5c35"
+        "theme": "red"
     },
     {
         "slug": "creative-dashboard",
@@ -29,7 +29,7 @@
             "Flask",
             "JavaScript"
         ],
-        "accent": "#4a8cff"
+        "theme": "blue"
     },
     {
         "slug": "automation-toolkit",
@@ -44,6 +44,6 @@
             "APIs",
             "Automation"
         ],
-        "accent": "#f2c94c"
+        "theme": "yellow"
     }
 ]

@@ -2,33 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
-
-    <meta
-        name="description"
-        content="A creative developer portfolio showcasing selected projects."
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Quickfolio — a playful, project-focused creative developer portfolio.">
+    <meta name="theme-color" content="#f4efe6">
     <title>{% block title %}Quickfolio{% endblock %}</title>
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
-    <main>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="intro-loader" id="intro-loader" role="dialog" aria-modal="true" aria-label="Portfolio introduction" hidden>
+        <div class="intro-loader__inner">
+            <span class="intro-loader__mark" aria-hidden="true">QF</span>
+            <p>Opening Quickfolio</p>
+            <div class="intro-loader__track" aria-hidden="true">
+                <span class="intro-loader__progress"></span>
+            </div>
+            <button class="intro-loader__skip" id="intro-skip" type="button">Skip intro</button>
+        </div>
+    </div>
+
+    <header class="site-shell" data-site-shell>
+        <a class="wordmark" href="{{ url_for('home') }}" aria-label="Quickfolio home">
+            <span>QUICK</span><span>FOLIO</span>
+        </a>
+
+        <div class="section-status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="section-status">Home</span>
+        </div>
+
+        <div class="shell-actions">
+            <button class="utility-button" id="motion-toggle" type="button" aria-pressed="false">Motion on</button>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+                <span>Navigate</span>
+                <span class="menu-toggle__icon" aria-hidden="true">+</span>
+            </button>
+        </div>
+
+        <nav class="site-menu" id="site-menu" aria-label="Primary navigation" hidden>
+            <a href="{{ url_for('home') }}#home">Home</a>
+            <a href="{{ url_for('home') }}#about">About</a>
+            <a href="{{ url_for('home') }}#selected-work">Selected work</a>
+            <a href="{{ url_for('home') }}#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
         {% block content %}{% endblock %}
     </main>
 
-    <script
-        src="{{ url_for('static', filename='js/app.js') }}"
-        defer
-    ></script>
+    <footer class="site-footer">
+        <p>Built with curiosity, Python and Flask.</p>
+        <a href="#main-content">Back to top ↑</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
 </body>
 </html>
