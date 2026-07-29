@@ -54,8 +54,9 @@
         "duration": "3–4 weeks",
         "status": "Live",
         "theme": "red",
-        "cover_image": "images/projects/madesumhow-home.png",
-        "cover_alt": "Made Sumhow storefront homepage with dark campaign imagery and red brand typography",
+        "cover_image": "images/projects/madesumhow-shop.png",
+        "cover_alt": "Made Sumhow shop page presenting the clothing collection on a black background",
+        "gallery_heading": "The story",
         "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase", "PayFast", "Vercel"],
         "challenge": "The business needed to move beyond social-media-only selling. The technical challenge was to integrate payments, inventory, currency conversion and shipping calculations while keeping the shopping experience minimal, premium and easy to use on mobile.",
         "approach": [
@@ -79,18 +80,11 @@
         ],
         "visuals": [
             {
-                "label": "Brand experience",
-                "title": "Campaign-led storefront",
-                "caption": "The homepage combines strong brand imagery with direct access to the current product drop.",
-                "image": "images/projects/madesumhow-home.png",
-                "alt": "Made Sumhow homepage with a dark fashion campaign hero and brand navigation"
-            },
-            {
-                "label": "Catalogue",
-                "title": "A focused product collection",
-                "caption": "A minimal catalogue keeps the garments central and makes the collection easy to scan.",
-                "image": "images/projects/madesumhow-shop.png",
-                "alt": "Made Sumhow shop page showing the clothing collection on a black background"
+                "label": "Brand story",
+                "title": "Built from vision, not comfort",
+                "caption": "The story section communicates the belief, community and purpose behind every Made Sumhow collection.",
+                "image": "images/projects/madesumhow-story.png",
+                "alt": "Made Sumhow brand story explaining its vision, community and purpose"
             },
             {
                 "label": "Commerce",
@@ -98,6 +92,13 @@
                 "caption": "Size selection, pricing and country-specific delivery information are visible before checkout.",
                 "image": "images/projects/madesumhow-product.png",
                 "alt": "Made Sumhow product page with size selection, price and shipping information"
+            },
+            {
+                "label": "Checkout",
+                "title": "A secure path to payment",
+                "caption": "Contact details, delivery costs and the final order summary stay visible before the customer continues to PayFast.",
+                "image": "images/projects/madesumhow-checkout.png",
+                "alt": "Made Sumhow checkout with customer details, shipping address and order summary"
             }
         ],
         "outcome": "The brand launched a fully operational online store with secure PayFast checkout, inventory and order management, multi-currency support, shipping calculations and a responsive customer experience across desktop and mobile.",

@@ -1257,6 +1257,112 @@ em {
     line-height: 1.65;
 }
 
+/* Magnum: preserve the supplied crops and prioritise interface legibility. */
+.case-study--magnum-digital-sales-platform .case-hero__heading h1 {
+    max-width: 42rem;
+    font-size: clamp(3.75rem, 7vw, 6.5rem);
+    line-height: 0.86;
+}
+
+.case-study--magnum-digital-sales-platform .case-hero__art.case-hero__art--image {
+    aspect-ratio: 1504 / 879;
+}
+
+.case-study--magnum-digital-sales-platform .case-hero__art--image img,
+.case-study--magnum-digital-sales-platform .visual-card__canvas--screenshot img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.case-study--magnum-digital-sales-platform .visual-card:nth-child(1) .visual-card__canvas--screenshot {
+    aspect-ratio: 1710 / 948;
+}
+
+.case-study--magnum-digital-sales-platform .visual-card:nth-child(2) .visual-card__canvas--screenshot {
+    aspect-ratio: 1433 / 871;
+}
+
+.case-study--magnum-digital-sales-platform .visual-card:nth-child(3) .visual-card__canvas--screenshot {
+    aspect-ratio: 1812 / 1000;
+}
+
+.case-study--magnum-digital-sales-platform .visual-grid {
+    grid-template-columns: 1fr;
+}
+
+.case-study--magnum-digital-sales-platform .visual-card {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+}
+
+.case-study--magnum-digital-sales-platform .visual-card__canvas--screenshot,
+.case-study--magnum-digital-sales-platform .visual-card__canvas--screenshot img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+@media (min-width: 901px) {
+    .case-study--magnum-digital-sales-platform .case-hero {
+        grid-template-columns: minmax(20rem, 0.78fr) minmax(32rem, 1.22fr);
+        gap: clamp(2.5rem, 5vw, 5rem);
+    }
+}
+
+/* Made Sumhow: lead with the collection and let each commerce screen breathe. */
+.case-study--madesumhow-digital-store .case-hero__heading h1 {
+    max-width: 38rem;
+    font-size: clamp(4rem, 8vw, 7.25rem);
+    line-height: 0.86;
+}
+
+.case-study--madesumhow-digital-store .case-hero__art.case-hero__art--image {
+    aspect-ratio: 1441 / 738;
+}
+
+.case-study--madesumhow-digital-store .case-hero__art--image img,
+.case-study--madesumhow-digital-store .visual-card__canvas--screenshot img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.case-study--madesumhow-digital-store .visual-card:nth-child(1) .visual-card__canvas--screenshot {
+    aspect-ratio: 1342 / 620;
+}
+
+.case-study--madesumhow-digital-store .visual-card:nth-child(2) .visual-card__canvas--screenshot {
+    aspect-ratio: 1394 / 829;
+}
+
+.case-study--madesumhow-digital-store .visual-card:nth-child(3) .visual-card__canvas--screenshot {
+    aspect-ratio: 1776 / 917;
+}
+
+.case-study--madesumhow-digital-store .visual-grid {
+    grid-template-columns: 1fr;
+}
+
+.case-study--madesumhow-digital-store .visual-card {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+}
+
+.case-study--madesumhow-digital-store .visual-card__canvas--screenshot,
+.case-study--madesumhow-digital-store .visual-card__canvas--screenshot img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+@media (min-width: 901px) {
+    .case-study--madesumhow-digital-store .case-hero {
+        grid-template-columns: minmax(20rem, 0.78fr) minmax(32rem, 1.22fr);
+        gap: clamp(2.5rem, 5vw, 5rem);
+    }
+}
+
 .case-links {
     margin-top: var(--space-5);
     display: flex;

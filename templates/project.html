@@ -4,7 +4,7 @@
 {% block section_status %}Case study{% endblock %}
 
 {% block content %}
-<article class="case-study project-theme--{{ project.theme }}">
+<article class="case-study case-study--{{ project.slug }} project-theme--{{ project.theme }}">
     <header class="case-hero">
         <a class="back-link" href="{{ url_for('home') }}#selected-work">← All selected work</a>
 
@@ -79,7 +79,7 @@
     <section class="case-gallery" aria-labelledby="gallery-title">
         <div class="case-gallery__heading">
             <p class="eyebrow">Visual story</p>
-            <h2 id="gallery-title">The experience<br><em>taking shape.</em></h2>
+            <h2 id="gallery-title">{{ project.get('gallery_heading', 'The experience') }}<br><em>taking shape.</em></h2>
         </div>
 
         <div class="visual-grid">
