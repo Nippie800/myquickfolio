@@ -24,15 +24,24 @@ def home():
 def project_detail(slug):
     projects = load_projects()
 
-    project = next(
-        (item for item in projects if item["slug"] == slug),
+    project_index = next(
+        (index for index, item in enumerate(projects) if item["slug"] == slug),
         None,
     )
 
-    if project is None:
+    if project_index is None:
         abort(404)
 
-    return render_template("project.html", project=project)
+    project = projects[project_index]
+    previous_project = projects[(project_index - 1) % len(projects)]
+    next_project = projects[(project_index + 1) % len(projects)]
+
+    return render_template(
+        "project.html",
+        project=project,
+        previous_project=previous_project,
+        next_project=next_project,
+    )
 
 
 @app.errorhandler(404)

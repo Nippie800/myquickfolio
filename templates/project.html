@@ -1,45 +1,137 @@
 {% extends "base.html" %}
 
 {% block title %}{{ project.title }} | Quickfolio{% endblock %}
+{% block section_status %}Case study{% endblock %}
 
 {% block content %}
-<article class="project-detail">
-    <a class="back-link" href="{{ url_for('home') }}#selected-work">
-        ← Back to selected work
-    </a>
+<article class="case-study project-theme--{{ project.theme }}">
+    <header class="case-hero">
+        <a class="back-link" href="{{ url_for('home') }}#selected-work">← All selected work</a>
 
-    <header class="project-header project-header--{{ project.theme }}">
-        <p class="eyebrow">
-            {{ project.category }} · {{ project.year }}
-        </p>
+        <div class="case-hero__heading">
+            <p class="eyebrow">{{ project.category }} · {{ project.year }}</p>
+            <h1>{{ project.title }}</h1>
+            <p>{{ project.summary }}</p>
+        </div>
 
-        <h1>{{ project.title }}</h1>
+        {% if project.cover_image %}
+            <figure class="case-hero__art case-hero__art--image">
+                <img src="{{ url_for('static', filename=project.cover_image) }}" alt="{{ project.cover_alt }}">
+            </figure>
+        {% else %}
+            <div class="case-hero__art" aria-hidden="true">
+                <span class="case-window case-window--back"><i></i><i></i><i></i></span>
+                <span class="case-window case-window--middle"><i></i><i></i><i></i></span>
+                <span class="case-window case-window--front">
+                    <small>{{ project.category }}</small>
+                    <strong>{{ project.title }}</strong>
+                </span>
+            </div>
+        {% endif %}
 
-        <p class="project-summary">
-            {{ project.summary }}
-        </p>
+        <dl class="case-facts">
+            <div><dt>Role</dt><dd>{{ project.role }}</dd></div>
+            <div><dt>Timeline</dt><dd>{{ project.duration }}</dd></div>
+            <div><dt>Status</dt><dd>{{ project.status }}</dd></div>
+        </dl>
     </header>
 
-    <section class="project-information">
-        <div>
-            <h2>Overview</h2>
-            <p>{{ project.description }}</p>
+    <section class="case-section case-overview" aria-labelledby="overview-title">
+        <div class="case-section__label"><span>01</span><p>Overview</p></div>
+        <div class="case-section__content">
+            <h2 id="overview-title">The project,<br><em>in plain language.</em></h2>
+            <p class="case-lead">{{ project.description }}</p>
         </div>
+    </section>
 
-        <div>
-            <h2>My role</h2>
-            <p>{{ project.role }}</p>
+    <section class="case-highlights" aria-label="Project highlights">
+        {% for highlight in project.highlights %}
+            <article>
+                <strong>{{ highlight.value }}</strong>
+                <p>{{ highlight.label }}</p>
+            </article>
+        {% endfor %}
+    </section>
+
+    <section class="case-section" aria-labelledby="challenge-title">
+        <div class="case-section__label"><span>02</span><p>The challenge</p></div>
+        <div class="case-section__content case-section__content--split">
+            <h2 id="challenge-title">What needed<br><em>to change?</em></h2>
+            <p class="case-lead">{{ project.challenge }}</p>
         </div>
+    </section>
 
-        <div>
-            <h2>Technologies</h2>
-
-            <div class="technology-list" role="list">
-                {% for technology in project.technologies %}
-                    <span role="listitem">{{ technology }}</span>
+    <section class="case-section" aria-labelledby="process-title">
+        <div class="case-section__label"><span>03</span><p>The process</p></div>
+        <div class="case-section__content">
+            <h2 id="process-title">A deliberate path<br><em>from idea to outcome.</em></h2>
+            <div class="process-list" role="list">
+                {% for step in project.approach %}
+                    <article role="listitem">
+                        <span>{{ "%02d" | format(loop.index) }}</span>
+                        <div><h3>{{ step.title }}</h3><p>{{ step.description }}</p></div>
+                    </article>
                 {% endfor %}
             </div>
         </div>
     </section>
+
+    <section class="case-gallery" aria-labelledby="gallery-title">
+        <div class="case-gallery__heading">
+            <p class="eyebrow">Visual story</p>
+            <h2 id="gallery-title">The experience<br><em>taking shape.</em></h2>
+        </div>
+
+        <div class="visual-grid">
+            {% for visual in project.visuals %}
+                <figure class="visual-card{% if visual.image %} visual-card--screenshot{% endif %}">
+                    {% if visual.image %}
+                        <div class="visual-card__canvas visual-card__canvas--screenshot">
+                            <img src="{{ url_for('static', filename=visual.image) }}" alt="{{ visual.alt }}" loading="lazy">
+                        </div>
+                    {% else %}
+                        <div class="visual-card__canvas" aria-hidden="true">
+                            <span>{{ visual.label }}</span>
+                            <strong>{{ visual.title }}</strong>
+                            <i></i><i></i><i></i>
+                        </div>
+                    {% endif %}
+                    <figcaption><strong>{{ visual.title }}</strong><p>{{ visual.caption }}</p></figcaption>
+                </figure>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="outcome-title">
+        <div class="case-section__label"><span>04</span><p>Outcome</p></div>
+        <div class="case-section__content case-section__content--split">
+            <h2 id="outcome-title">What changed<br><em>after launch.</em></h2>
+            <p class="case-lead">{{ project.outcome }}</p>
+        </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="reflection-title">
+        <div class="case-section__label"><span>05</span><p>Reflection</p></div>
+        <div class="case-section__content case-section__content--split">
+            <h2 id="reflection-title">What this project<br><em>taught me.</em></h2>
+            <div>
+                <p class="case-lead">{{ project.reflection }}</p>
+                <div class="technology-list" role="list" aria-label="Technologies used">
+                    {% for technology in project.technologies %}<span role="listitem">{{ technology }}</span>{% endfor %}
+                </div>
+                {% if project.live_url or project.source_url %}
+                    <div class="case-links">
+                        {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">Visit live project ↗</a>{% endif %}
+                        {% if project.source_url %}<a href="{{ project.source_url }}" target="_blank" rel="noopener noreferrer">View source ↗</a>{% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="Project navigation">
+        <a href="{{ url_for('project_detail', slug=previous_project.slug) }}"><small>← Previous</small><strong>{{ previous_project.title }}</strong></a>
+        <a href="{{ url_for('project_detail', slug=next_project.slug) }}"><small>Next →</small><strong>{{ next_project.title }}</strong></a>
+    </nav>
 </article>
 {% endblock %}

@@ -72,7 +72,10 @@
                     <span class="project-card__dots" aria-hidden="true"><i></i><i></i><i></i></span>
                     <span>{{ "%02d" | format(loop.index) }}</span>
                 </div>
-                <div class="project-card__preview" aria-hidden="true">
+                <div class="project-card__preview{% if project.cover_image %} project-card__preview--image{% endif %}">
+                    {% if project.cover_image %}
+                        <img src="{{ url_for('static', filename=project.cover_image) }}" alt="" loading="lazy">
+                    {% endif %}
                     <span class="preview-label">{{ project.category }}</span>
                     <strong>{{ project.title }}</strong>
                 </div>

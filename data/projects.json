@@ -5,45 +5,166 @@
         "category": "Web Development",
         "year": "2026",
         "summary": "A playful portfolio experience built with Python and Flask.",
-        "description": "Quickfolio presents selected work through an interactive, folder-inspired interface.",
+        "description": "Quickfolio turns a traditional portfolio into a small interactive world. The interface borrows the familiarity of folders and desktop windows while keeping the content clear, fast and easy to navigate.",
         "role": "Designer and Developer",
-        "technologies": [
-            "Python",
-            "Flask",
-            "HTML",
-            "CSS",
-            "JavaScript"
+        "duration": "Five-day build",
+        "status": "In progress",
+        "theme": "yellow",
+        "cover_image": "",
+        "cover_alt": "",
+        "technologies": ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+        "challenge": "Most beginner portfolios use the same hero, card grid and contact form. The challenge was to create something memorable without making visitors work harder to understand the projects or reach the important information.",
+        "approach": [
+            {
+                "title": "Define the system",
+                "description": "Create a reusable visual language for colour, type, spacing, motion and interface depth before polishing individual screens."
+            },
+            {
+                "title": "Build with real data",
+                "description": "Keep project content in JSON and let Flask generate the gallery and case-study routes automatically."
+            },
+            {
+                "title": "Add delight carefully",
+                "description": "Use folders, windows and entrance motion as personality layers while preserving keyboard, touch and reduced-motion access."
+            }
         ],
-        "theme": "red"
+        "highlights": [
+            {"value": "Data-driven", "label": "Projects managed from one JSON file"},
+            {"value": "Responsive", "label": "Desktop, tablet and mobile layouts"},
+            {"value": "Accessible", "label": "Keyboard and reduced-motion foundations"}
+        ],
+        "visuals": [
+            {"label": "Direction", "title": "Folder-first navigation", "caption": "Familiar objects make the playful interface immediately understandable.", "image": "", "alt": ""},
+            {"label": "System", "title": "Reusable project windows", "caption": "A consistent card language gives every project its own colour and identity.", "image": "", "alt": ""},
+            {"label": "Experience", "title": "Motion with an off switch", "caption": "The interface can be expressive without ignoring visitor preferences.", "image": "", "alt": ""}
+        ],
+        "outcome": "A working, responsive portfolio foundation with data-driven projects, reusable case studies and an interface that feels personal rather than generic.",
+        "reflection": "The strongest lesson was that personality works best when the information architecture remains simple. The metaphor can be playful; the route through the content should stay obvious.",
+        "source_url": "https://github.com/Nippie800/myquickfolio",
+        "live_url": ""
     },
     {
-        "slug": "creative-dashboard",
-        "title": "Creative Dashboard",
-        "category": "Product Design",
-        "year": "2025",
-        "summary": "A focused dashboard that turns complex information into clear actions.",
-        "description": "This project explores clear information hierarchy, reusable interface components, and responsive data presentation.",
-        "role": "Product Designer and Frontend Developer",
-        "technologies": [
-            "Python",
-            "Flask",
-            "JavaScript"
+        "slug": "madesumhow-digital-store",
+        "title": "Made Sumhow",
+        "category": "E-commerce Platform",
+        "year": "2026",
+        "summary": "A premium direct-to-customer clothing store with custom commerce operations.",
+        "description": "Made Sumhow is a custom digital storefront created for a clothing brand that previously relied on social media to showcase products. The platform gives the brand a focused customer experience and an owned system for products, inventory, orders and community subscribers.",
+        "role": "Sole Full-Stack Developer",
+        "duration": "3–4 weeks",
+        "status": "Live",
+        "theme": "red",
+        "cover_image": "images/projects/madesumhow-home.png",
+        "cover_alt": "Made Sumhow storefront homepage with dark campaign imagery and red brand typography",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase", "PayFast", "Vercel"],
+        "challenge": "The business needed to move beyond social-media-only selling. The technical challenge was to integrate payments, inventory, currency conversion and shipping calculations while keeping the shopping experience minimal, premium and easy to use on mobile.",
+        "approach": [
+            {
+                "title": "Translate the brand into a storefront",
+                "description": "Design a campaign-led interface that feels like Made Sumhow while keeping product discovery, sizing and purchasing straightforward."
+            },
+            {
+                "title": "Build the complete commerce flow",
+                "description": "Connect product data, size validation, cart state, multi-currency pricing, shipping rules and secure PayFast payments into one customer journey."
+            },
+            {
+                "title": "Give the brand operational control",
+                "description": "Create a custom administration system for products, inventory, orders and community subscribers instead of relying on a generic hosted-store template."
+            }
         ],
-        "theme": "blue"
+        "highlights": [
+            {"value": "Custom", "label": "Storefront and admin system"},
+            {"value": "PayFast", "label": "Secure South African payments"},
+            {"value": "Global", "label": "Currency and shipping support"}
+        ],
+        "visuals": [
+            {
+                "label": "Brand experience",
+                "title": "Campaign-led storefront",
+                "caption": "The homepage combines strong brand imagery with direct access to the current product drop.",
+                "image": "images/projects/madesumhow-home.png",
+                "alt": "Made Sumhow homepage with a dark fashion campaign hero and brand navigation"
+            },
+            {
+                "label": "Catalogue",
+                "title": "A focused product collection",
+                "caption": "A minimal catalogue keeps the garments central and makes the collection easy to scan.",
+                "image": "images/projects/madesumhow-shop.png",
+                "alt": "Made Sumhow shop page showing the clothing collection on a black background"
+            },
+            {
+                "label": "Commerce",
+                "title": "Product decisions made clear",
+                "caption": "Size selection, pricing and country-specific delivery information are visible before checkout.",
+                "image": "images/projects/madesumhow-product.png",
+                "alt": "Made Sumhow product page with size selection, price and shipping information"
+            }
+        ],
+        "outcome": "The brand launched a fully operational online store with secure PayFast checkout, inventory and order management, multi-currency support, shipping calculations and a responsive customer experience across desktop and mobile.",
+        "reflection": "The project reinforced that a premium visual experience still depends on dependable operational details. Payments, stock, shipping and administration needed as much design attention as the storefront itself.",
+        "source_url": "",
+        "live_url": "https://www.madesumhow.com/"
     },
     {
-        "slug": "automation-toolkit",
-        "title": "Automation Toolkit",
-        "category": "Python Development",
-        "year": "2025",
-        "summary": "A collection of tools for reducing repetitive everyday work.",
-        "description": "The toolkit uses Python to transform repetitive manual processes into dependable automated workflows.",
-        "role": "Python Developer",
-        "technologies": [
-            "Python",
-            "APIs",
-            "Automation"
+        "slug": "magnum-digital-sales-platform",
+        "title": "Magnum Digital Sales Platform",
+        "category": "B2B Sales Platform",
+        "year": "2026",
+        "summary": "A scalable industrial sales platform built around products, expertise and structured enquiries.",
+        "description": "Magnum Digital Sales Platform is a custom B2B experience developed for Magnum Engineering & Industrial Supplies. It modernises a 17-year industrial business through a product catalogue, supplier showcase, knowledge hub and purpose-built sales workflows.",
+        "role": "Sole Designer & Full-Stack Developer",
+        "duration": "5–6 weeks",
+        "status": "Live · retained support",
+        "theme": "blue",
+        "cover_image": "images/projects/magnum-categories.png",
+        "cover_alt": "Magnum Engineering product categories showing industrial tools, equipment and safety supplies",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase", "Vercel", "DNS & SSL"],
+        "challenge": "The company had an outdated website, limited product discovery and a manual enquiry process. The most sensitive technical challenge was launching on the existing domain without interrupting the client's email or other business services during DNS migration.",
+        "approach": [
+            {
+                "title": "Reframe the website as a sales platform",
+                "description": "Structure the experience around product discovery, credibility, supplier relationships and clear routes into a business enquiry."
+            },
+            {
+                "title": "Replace generic contact with structured RFQ",
+                "description": "Build a multi-line quotation workflow that captures company details, categories, quantities and requirements in a format the sales team can action."
+            },
+            {
+                "title": "Launch without business disruption",
+                "description": "Connect Vercel, configure DNS and SSL, preserve existing email records and monitor propagation until the production domain was stable."
+            }
         ],
-        "theme": "yellow"
+        "highlights": [
+            {"value": "End-to-end", "label": "Discovery through production launch"},
+            {"value": "Structured", "label": "Purpose-built RFQ workflow"},
+            {"value": "Retained", "label": "Ongoing client support"}
+        ],
+        "visuals": [
+            {
+                "label": "Positioning",
+                "title": "Industrial credibility upfront",
+                "caption": "The opening screen connects Magnum's experience with the product and support value offered to South African industry.",
+                "image": "images/projects/magnum-home.png",
+                "alt": "Magnum Engineering homepage with industrial equipment headline and construction imagery"
+            },
+            {
+                "label": "Lead generation",
+                "title": "A quotation workflow built for B2B",
+                "caption": "Customers can build a request from multiple product lines and review the information before submitting it.",
+                "image": "images/projects/magnum-rfq.png",
+                "alt": "Magnum quote request interface with contact details and product line items"
+            },
+            {
+                "label": "Supplier network",
+                "title": "Trusted brands, clearly showcased",
+                "caption": "The brand showcase makes Magnum's supplier relationships visible and gives customers a clear route into each product range.",
+                "image": "images/projects/magnum-brands.png",
+                "alt": "Magnum supplier showcase featuring leading industrial brands and direct product links"
+            }
+        ],
+        "outcome": "The platform launched successfully on the client's existing domain, digitised quotation requests, modernised product presentation and established a scalable foundation for sales and digital marketing. The client retained ongoing monthly management and support.",
+        "reflection": "Production deployment was part of the product work, not an afterthought. Preserving email services while migrating the domain required careful DNS planning, patient verification and clear ownership of the launch from end to end.",
+        "source_url": "",
+        "live_url": "https://www.magnumengineering.co.za/"
     }
 ]
