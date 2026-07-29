@@ -5,11 +5,10 @@
 
 {% block content %}
 <section class="error-page">
-    <p class="eyebrow">Error 404</p>
-    <h1>This folder appears to be empty.</h1>
-
-    <a href="{{ url_for('home') }}">
-        Return to the homepage
-    </a>
+    <div class="error-page__code" aria-hidden="true">404</div>
+    <p class="eyebrow">Page off-grid</p>
+    <h1>Looks like this page went <em>off exploring.</em></h1>
+    <p>Nothing broke—it simply wandered beyond the current build. Let’s get you back to something useful.</p>
+    <a class="contact-button" href="{{ url_for('home') }}">Return home <span aria-hidden="true">→</span></a>
 </section>
 {% endblock %}

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Quickfolio — a playful, project-focused creative developer portfolio.">
+    <meta name="description" content="Annele Ndlovu is a Johannesburg-based software engineer building thoughtful systems that help businesses operate smarter.">
     <meta name="theme-color" content="#f4efe6">
-    <title>{% block title %}Quickfolio{% endblock %}</title>
+    <title>{% block title %}Annele Ndlovu | Software Engineer{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -34,6 +34,7 @@
 
         <div class="shell-actions">
             <button class="utility-button" id="motion-toggle" type="button" aria-pressed="false">Motion on</button>
+            <button class="utility-button" id="sound-toggle" type="button" aria-pressed="false">Sound off</button>
             <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
                 <span>Navigate</span>
                 <span class="menu-toggle__icon" aria-hidden="true">+</span>
@@ -52,8 +53,34 @@
         {% block content %}{% endblock %}
     </main>
 
+    <dialog class="dev-console" id="developer-console" aria-labelledby="dev-console-title">
+        <div class="dev-console__window">
+            <div class="dev-console__bar">
+                <span id="dev-console-title">Hidden Dev Console</span>
+                <button id="close-console" type="button" aria-label="Close hidden developer console">Close</button>
+            </div>
+            <div class="dev-console__body">
+                <p class="dev-console__prompt">annele@nebula:~$ status</p>
+                <pre>NebulaOS Portfolio v1.0
+
+Projects shipped:
+✓ MasterPlan
+✓ Magnum Digital
+✓ MediRevive
+✓ VenueHub
+✓ MSW Clothing
+
+Current status:
+Building.
+Learning.
+Shipping.</pre>
+                <p class="dev-console__achievement">Achievement unlocked: Curiosity detected.</p>
+            </div>
+        </div>
+    </dialog>
+
     <footer class="site-footer">
-        <p>Built with curiosity, Python and Flask.</p>
+        <p>Annele Ndlovu · Built with curiosity, Python and Flask.</p>
         <a href="#main-content">Back to top ↑</a>
     </footer>
 

@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}Quickfolio | Creative Developer{% endblock %}
+{% block title %}Annele Ndlovu | Software Engineer{% endblock %}
 
 {% block content %}
 <section class="hero page-section" id="home" data-section="Home" aria-labelledby="hero-title">
     <div class="hero__copy">
-        <p class="eyebrow reveal-item">Python-powered creative portfolio</p>
-        <h1 id="hero-title" class="reveal-item">Useful ideas,<br><em>made alive.</em></h1>
+        <p class="eyebrow reveal-item">Annele Ndlovu · Software Engineer</p>
+        <h1 id="hero-title" class="reveal-item">Business systems,<br><em>made smarter.</em></h1>
         <p class="hero__intro reveal-item">
-            I design and build thoughtful digital experiences where useful technology
-            meets playful interaction.
+            I’m a software engineer building systems that help businesses operate smarter,
+            turning complex workflows into intuitive products people can use with confidence.
         </p>
     </div>
 
     <div class="hero__note reveal-item" aria-label="Availability">
         <span class="status-dot" aria-hidden="true"></span>
-        Available for thoughtful collaborations
+        Johannesburg · Available for opportunities
     </div>
 
     <nav class="folder-list reveal-item" aria-label="Portfolio sections">
@@ -44,28 +44,98 @@
 <section class="about-section page-section" id="about" data-section="About" aria-labelledby="about-title">
     <div class="section-kicker"><span>01</span><p>About the maker</p></div>
 
-    <div class="about-section__content">
-        <h2 id="about-title">I turn complex ideas into experiences that feel <em>clear and human.</em></h2>
+    <div class="about-section__content" data-reveal>
+        <h2 id="about-title">I turn complex workflows into software that feels <em>clear and human.</em></h2>
         <div class="about-section__body">
-            <p>I’m a creative developer who enjoys moving between design and code. My work combines practical problem-solving with strong visual thinking.</p>
-            <p>This portfolio is also part of the story: a Python application wrapped in a playful interface, built openly and improved one thoughtful detail at a time.</p>
+            <p>I’m a full-stack software engineer passionate about building products that solve real business problems—from client portals and quotation systems to administration dashboards and online storefronts.</p>
+            <p>Over the past two years, I’ve built custom systems across legal services, industrial supply, healthcare, hospitality and e-commerce. That work has strengthened both my technical skills and my understanding of how software supports real operations.</p>
         </div>
     </div>
 
-    <ul class="skill-strip" aria-label="Core skills">
-        <li>Python</li><li>Flask</li><li>Interface design</li><li>JavaScript</li><li>Creative technology</li>
-    </ul>
+    <div class="about-snapshot" data-reveal aria-label="Experience snapshot">
+        <article><strong>2+</strong><span>Years building software</span></article>
+        <article><strong>5</strong><span>Industries served</span></article>
+        <article><strong>End-to-end</strong><span>Discovery through deployment</span></article>
+    </div>
+
+    <div class="about-focus" data-reveal>
+        <article>
+            <p class="eyebrow">Current focus</p>
+            <h3>Scalable business systems and thoughtful digital products.</h3>
+            <p>I’m deepening my knowledge of software architecture, cloud technology and product design while building with React, Next.js, Firebase and TypeScript. I’m also exploring Unity and indie game development.</p>
+        </article>
+        <article class="about-focus__availability">
+            <p class="eyebrow">Open to</p>
+            <ul>
+                <li>Full-time software engineering</li>
+                <li>Freelance development</li>
+                <li>Product development</li>
+                <li>Startup collaborations</li>
+            </ul>
+        </article>
+    </div>
+
+    <div class="expertise-panel" data-reveal>
+        <p class="eyebrow">Core capabilities</p>
+        <ul class="skill-strip">
+            <li>Full-stack development</li>
+            <li>System architecture</li>
+            <li>UI / UX design</li>
+            <li>Business process automation</li>
+            <li>Firebase & cloud services</li>
+            <li>Database design</li>
+            <li>Responsive web development</li>
+            <li>Product development</li>
+        </ul>
+    </div>
+
+    <div class="capability-grid" data-reveal aria-label="Technology stack">
+        <article>
+            <p class="eyebrow">Frontend</p>
+            <ul class="skill-strip"><li>React</li><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li></ul>
+        </article>
+        <article>
+            <p class="eyebrow">Backend & cloud</p>
+            <ul class="skill-strip"><li>Firebase</li><li>Firestore</li><li>Cloud Functions</li><li>REST APIs</li></ul>
+        </article>
+        <article>
+            <p class="eyebrow">Languages & tools</p>
+            <ul class="skill-strip"><li>JavaScript</li><li>Python</li><li>SQL</li><li>Git</li><li>GitHub</li><li>Vercel</li><li>Figma</li><li>VS Code</li></ul>
+        </article>
+    </div>
+
+    <div class="interests-panel" data-reveal>
+        <p class="eyebrow">Away from the editor</p>
+        <ul>
+            <li>Basketball</li>
+            <li>Gaming & content creation</li>
+            <li>YouTube production</li>
+            <li>Architecture & design</li>
+            <li>Entrepreneurship</li>
+            <li>Music production</li>
+            <li>Indie game development</li>
+        </ul>
+    </div>
+
+    <div class="about-actions" data-reveal>
+        {% if resume_available %}
+            <a class="secondary-button" href="{{ url_for('static', filename=resume_filename) }}" download>Download résumé <span aria-hidden="true">↓</span></a>
+        {% else %}
+            <span class="secondary-button secondary-button--disabled" aria-disabled="true">Résumé being updated</span>
+        {% endif %}
+        <a class="text-link" href="https://www.linkedin.com/in/annele-ndlovu-2127093a4/" target="_blank" rel="noopener noreferrer">View LinkedIn <span aria-hidden="true">↗</span></a>
+    </div>
 </section>
 
 <section class="projects-section page-section" id="selected-work" data-section="Work" aria-labelledby="work-title">
     <div class="section-kicker"><span>02</span><p>Selected work</p></div>
 
-    <header class="section-heading">
+    <header class="section-heading" data-reveal>
         <h2 id="work-title">Projects made with<br><em>thought and curiosity.</em></h2>
         <p>Select a project window to see the thinking behind the outcome.</p>
     </header>
 
-    <div class="project-grid">
+    <div class="project-grid" data-reveal>
         {% for project in projects %}
             <article class="project-card project-card--{{ project.theme }}">
                 <div class="project-card__bar">
@@ -92,11 +162,29 @@
 
 <section class="contact-section page-section" id="contact" data-section="Contact" aria-labelledby="contact-title">
     <div class="section-kicker section-kicker--light"><span>03</span><p>Contact</p></div>
-    <div class="contact-section__content">
-        <p class="eyebrow">Have an idea worth building?</p>
-        <h2 id="contact-title">Let’s make something<br><em>worth remembering.</em></h2>
-        <p>For now, the best place to follow the work or start a conversation is GitHub.</p>
-        <a class="contact-button" href="https://github.com/Nippie800" target="_blank" rel="noopener noreferrer">Visit GitHub <span aria-hidden="true">↗</span></a>
+    <div class="contact-section__content" data-reveal>
+        <div class="contact-section__intro">
+            <p class="eyebrow">Have a useful problem to solve?</p>
+            <h2 id="contact-title">Let’s build software<br><em>that earns its place.</em></h2>
+            <p>I’m available for freelance projects, software consulting, startup collaborations and full-time software engineering opportunities.</p>
+            <div class="contact-actions">
+                <a class="contact-button" href="mailto:annelepaperstaples@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
+                <button class="copy-email-button" type="button" data-copy-email="annelepaperstaples@gmail.com">Copy email</button>
+                <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+            </div>
+        </div>
+
+        <div class="contact-links" aria-label="Contact and social links">
+            <a href="mailto:annelepaperstaples@gmail.com"><span>Email</span><strong>annelepaperstaples@gmail.com</strong><i aria-hidden="true">↗</i></a>
+            <a href="https://www.linkedin.com/in/annele-ndlovu-2127093a4/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>Annele Ndlovu</strong><i aria-hidden="true">↗</i></a>
+            <a href="https://github.com/Nippie800" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>@Nippie800</strong><i aria-hidden="true">↗</i></a>
+            <a href="https://youtube.com/@Nippie800" target="_blank" rel="noopener noreferrer"><span>YouTube</span><strong>@Nippie800</strong><i aria-hidden="true">↗</i></a>
+            {% if resume_available %}
+                <a href="{{ url_for('static', filename=resume_filename) }}" download><span>Résumé</span><strong>Download PDF</strong><i aria-hidden="true">↓</i></a>
+            {% else %}
+                <div class="contact-links__pending"><span>Résumé</span><strong>Being updated</strong><i aria-hidden="true">—</i></div>
+            {% endif %}
+        </div>
     </div>
 </section>
 {% endblock %}
