@@ -167,5 +167,67 @@
         "reflection": "Production deployment was part of the product work, not an afterthought. Preserving email services while migrating the domain required careful DNS planning, patient verification and clear ownership of the launch from end to end.",
         "source_url": "",
         "live_url": "https://www.magnumengineering.co.za/"
+    },
+    {
+        "slug": "fox-fish-dive",
+        "title": "Fox Fish Dive",
+        "category": "Game Development",
+        "year": "2026",
+        "summary": "A compact underwater arcade game balancing collection, oxygen and obstacle avoidance.",
+        "description": "Fox Fish Dive is a desktop browser game built around a simple risk-and-reward loop: guide a diving fox through the water, collect all 12 fish and return to the surface to refill oxygen before the meter runs out. Moving logs, armed mines and limited breath turn a small control set into a tense, replayable challenge.",
+        "role": "Solo Game Developer",
+        "duration": "Independent prototype",
+        "status": "Playable desktop build",
+        "theme": "blue",
+        "cover_image": "images/projects/fox-fish-dive-cover.png",
+        "cover_alt": "Fox Fish Dive promotional artwork showing a pixel-art fox swimming among fish, mines and moving obstacles in an underwater game world",
+        "gallery_heading": "The game loop",
+        "featured_cta_label": "Play desktop game",
+        "live_label": "Play game",
+        "source_label": "View game source",
+        "technologies": ["JavaScript", "HTML5 Canvas", "HTML", "CSS", "GitHub Pages"],
+        "challenge": "The game needed to feel understandable within seconds while still creating meaningful pressure. The main design challenge was balancing movement, oxygen drain, surface recovery, collectible placement and moving hazards so that failure feels readable and another attempt feels worthwhile.",
+        "approach": [
+            {
+                "title": "Build one clear survival loop",
+                "description": "Connect exploration to a visible oxygen system: diving creates opportunity, while returning to the surface restores the resource needed to continue."
+            },
+            {
+                "title": "Create challenge through interacting systems",
+                "description": "Combine collectible fish, collision detection, armed mines and horizontally moving logs instead of relying on a complicated control scheme."
+            },
+            {
+                "title": "Make the world feel alive",
+                "description": "Use a custom Canvas render loop for bubbles, light rays, seaweed, particles, animated water, win effects and a pixel-art fox character."
+            }
+        ],
+        "highlights": [
+            {"value": "12 fish", "label": "One clear collection objective"},
+            {"value": "Oxygen", "label": "Risk, recovery and survival system"},
+            {"value": "Canvas", "label": "Custom rendering and collision logic"}
+        ],
+        "visuals": [
+            {
+                "label": "Game overview",
+                "title": "A complete challenge at a glance",
+                "caption": "The cover communicates the objective, oxygen pressure, hazards and replayable structure before the first dive begins.",
+                "image": "images/projects/fox-fish-dive-cover.png",
+                "alt": "Fox Fish Dive game overview with the diving fox, collectible fish, oxygen meter, hazards and feature descriptions"
+            },
+            {
+                "label": "Core mechanic",
+                "title": "Every dive spends oxygen",
+                "caption": "The surface is both the starting point and the player's safe place, creating a readable rhythm of risk, recovery and another attempt."
+            },
+            {
+                "label": "Game feel",
+                "title": "Small effects build the underwater world",
+                "caption": "Bubbles, drifting particles, light rays, moving seaweed and confetti feedback give the Canvas world motion and personality."
+            }
+        ],
+        "outcome": "A playable desktop game with a complete objective, keyboard controls, oxygen management, collision-based hazards, win and loss states, restart support and a public GitHub Pages build that anyone can try immediately.",
+        "reflection": "Building Fox Fish Dive showed me that game development is as much about feedback and tuning as implementation. A mechanic can be technically correct and still need careful timing, visual communication and difficulty balancing before it feels fair and fun.",
+        "source_url": "https://github.com/Nippie800/fox-fish-dive",
+        "live_url": "https://nippie800.github.io/fox-fish-dive/"
     }
 ]

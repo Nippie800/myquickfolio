@@ -135,9 +135,9 @@
         <p>Select a project window to see the thinking behind the outcome.</p>
     </header>
 
-    <div class="project-grid" data-reveal>
+    <div class="project-grid{% if projects | length == 4 %} project-grid--four{% endif %}" data-reveal>
         {% for project in projects %}
-            <article class="project-card project-card--{{ project.theme }}">
+            <article class="project-card project-card--{{ project.theme }} project-card--{{ project.slug }}">
                 <div class="project-card__bar">
                     <span class="project-card__dots" aria-hidden="true"><i></i><i></i><i></i></span>
                     <span>{{ "%02d" | format(loop.index) }}</span>

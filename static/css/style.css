@@ -606,6 +606,20 @@ em {
     perspective: 1200px;
 }
 
+.project-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.project-grid--four .project-card:nth-child(2),
+.project-grid--four .project-card:nth-child(4) {
+    margin-top: var(--space-6);
+}
+
+.project-grid--four .project-card:nth-child(3) {
+    margin-top: 0;
+}
+
 .project-card {
     overflow: hidden;
     border: var(--line);
@@ -722,6 +736,10 @@ em {
     font-size: clamp(2rem, 3.5vw, 3.25rem);
     line-height: 0.85;
     letter-spacing: -0.07em;
+}
+
+.project-card--fox-fish-dive .project-card__preview > strong {
+    visibility: hidden;
 }
 
 .project-card__content {
@@ -903,6 +921,54 @@ em {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.case-hero__cta {
+    width: fit-content;
+    margin-top: var(--space-4);
+    padding: 0.8rem 1.1rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-pill);
+    color: var(--ink);
+    background: var(--project-accent);
+    box-shadow: 4px 4px 0 var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.case-hero__cta:hover,
+.case-hero__cta:focus-visible {
+    box-shadow: 2px 2px 0 var(--ink);
+    transform: translate(2px, 2px);
+}
+
+.case-study--fox-fish-dive .case-hero__art.case-hero__art--image {
+    aspect-ratio: 3 / 2;
+}
+
+.case-study--fox-fish-dive .case-hero {
+    grid-template-columns: minmax(18rem, 0.72fr) minmax(32rem, 1.28fr);
+    gap: clamp(2rem, 4vw, 4rem);
+}
+
+.case-study--fox-fish-dive .case-hero__heading h1 {
+    max-width: 34rem;
+    font-size: clamp(4rem, 8vw, 7rem);
+}
+
+.case-study--fox-fish-dive .case-hero__art--image img,
+.case-study--fox-fish-dive .visual-card:first-child .visual-card__canvas--screenshot img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.case-study--fox-fish-dive .case-hero__art.case-hero__art--image,
+.case-study--fox-fish-dive .visual-card:first-child .visual-card__canvas--screenshot {
+    background: #071a32;
 }
 
 .case-window {
@@ -1562,6 +1628,15 @@ em {
         grid-column: 1 / -1;
     }
 
+    .project-grid--four .project-card:nth-child(3) {
+        grid-column: auto;
+    }
+
+    .project-grid--four .project-card:nth-child(2),
+    .project-grid--four .project-card:nth-child(4) {
+        margin-top: 0;
+    }
+
     .project-information {
         grid-template-columns: 1fr 1fr;
     }
@@ -1572,6 +1647,15 @@ em {
 
     .case-hero {
         grid-template-columns: 1fr;
+    }
+
+    .case-study--fox-fish-dive .case-hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .case-study--fox-fish-dive .case-hero__art {
+        width: min(100%, 42rem);
     }
 
     .case-hero__art {

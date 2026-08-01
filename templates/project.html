@@ -12,6 +12,9 @@
             <p class="eyebrow">{{ project.category }} · {{ project.year }}</p>
             <h1>{{ project.title }}</h1>
             <p>{{ project.summary }}</p>
+            {% if project.get('featured_cta_label') and project.live_url %}
+                <a class="case-hero__cta" href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">{{ project.featured_cta_label }} <span aria-hidden="true">↗</span></a>
+            {% endif %}
         </div>
 
         {% if project.cover_image %}
@@ -121,8 +124,8 @@
                 </div>
                 {% if project.live_url or project.source_url %}
                     <div class="case-links">
-                        {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">Visit live project ↗</a>{% endif %}
-                        {% if project.source_url %}<a href="{{ project.source_url }}" target="_blank" rel="noopener noreferrer">View source ↗</a>{% endif %}
+                        {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">{{ project.get('live_label', 'Visit live project') }} ↗</a>{% endif %}
+                        {% if project.source_url %}<a href="{{ project.source_url }}" target="_blank" rel="noopener noreferrer">{{ project.get('source_label', 'View source') }} ↗</a>{% endif %}
                     </div>
                 {% endif %}
             </div>
