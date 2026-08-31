@@ -72,6 +72,7 @@ function closeMenu({ immediate = false } = {}) {
     clearTimeout(menuTimer);
     menu.classList.remove("is-open");
     menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
 
     if (immediate || !motionEnabled) {
         menu.hidden = true;
@@ -89,6 +90,7 @@ function openMenu() {
     clearTimeout(menuTimer);
     menu.hidden = false;
     menuToggle.setAttribute("aria-expanded", "true");
+    menuToggle.setAttribute("aria-label", "Close navigation menu");
 
     window.requestAnimationFrame(() => {
         menu.classList.add("is-open");

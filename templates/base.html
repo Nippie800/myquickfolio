@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Annele Ndlovu is a Johannesburg-based software engineer building thoughtful systems that help businesses operate smarter.">
+    <meta name="description" content="{% block meta_description %}Computer Science student and software engineer based in Johannesburg, building full-stack applications, business systems, digital products, and interactive experiences.{% endblock %}">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
     <meta name="theme-color" content="#f4efe6">
-    <title>{% block title %}Annele Ndlovu | Software Engineer{% endblock %}</title>
+    <link rel="canonical" href="{{ request.base_url }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
+
+    <meta property="og:site_name" content="Annele Ndlovu · Quickfolio">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Annele Ndlovu — Software Engineer &amp; Systems Developer{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Computer Science student and software engineer based in Johannesburg, building full-stack applications, business systems, digital products, and interactive experiences.{% endblock %}">
+    <meta property="og:url" content="{{ request.base_url }}">
+    {% if page_image_url or og_image_available %}
+        <meta property="og:image" content="{{ page_image_url or og_image_url }}">
+        <meta property="og:image:alt" content="{% block og_image_alt %}Annele Ndlovu software engineering portfolio{% endblock %}">
+    {% endif %}
+
+    <meta name="twitter:card" content="{% if page_image_url or og_image_available %}summary_large_image{% else %}summary{% endif %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Annele Ndlovu — Software Engineer &amp; Systems Developer{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Computer Science student and software engineer based in Johannesburg, building full-stack applications, business systems, digital products, and interactive experiences.{% endblock %}">
+    {% if page_image_url or og_image_available %}<meta name="twitter:image" content="{{ page_image_url or og_image_url }}">{% endif %}
+
+    <title>{% block title %}Annele Ndlovu — Software Engineer &amp; Systems Developer{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -35,7 +54,7 @@
         <div class="shell-actions">
             <button class="utility-button" id="motion-toggle" type="button" aria-pressed="false">Motion on</button>
             <button class="utility-button" id="sound-toggle" type="button" aria-pressed="false">Sound off</button>
-            <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-menu">
                 <span>Navigate</span>
                 <span class="menu-toggle__icon" aria-hidden="true">+</span>
             </button>
