@@ -25,11 +25,9 @@ def load_projects():
 
 @app.context_processor
 def portfolio_assets():
-    """Expose optional portfolio assets without creating broken download links."""
-    resume_path = RESUME_FOLDER / RESUME_FILENAME
+    """Expose portfolio asset URLs and optional social imagery."""
     og_image_path = PUBLIC_FOLDER / OG_IMAGE_FILENAME
     return {
-        "resume_available": resume_path.is_file(),
         "resume_url": url_for("resume_download"),
         "og_image_available": og_image_path.is_file(),
         "og_image_url": url_for("og_image", _external=True),
