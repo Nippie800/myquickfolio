@@ -131,25 +131,31 @@
         <p>Select a project window to see the thinking behind the outcome.</p>
     </header>
 
-    <div class="project-grid{% if projects | length == 4 %} project-grid--four{% endif %}" data-reveal>
+    <div class="project-grid{% if projects | length == 4 %} project-grid--four{% endif %}{% if projects and projects[0].get('featured') %} project-grid--featured{% endif %}" data-reveal>
         {% for project in projects %}
-            <article class="project-card project-card--{{ project.theme }} project-card--{{ project.slug }}">
+            <article class="project-card project-card--{{ project.theme }} project-card--{{ project.slug }}{% if project.get('featured') %} project-card--featured{% endif %}">
                 <div class="project-card__bar">
                     <span class="project-card__dots" aria-hidden="true"><i></i><i></i><i></i></span>
                     <span>{{ "%02d" | format(loop.index) }}</span>
                 </div>
                 <div class="project-card__preview{% if project.cover_image %} project-card__preview--image{% endif %}">
                     {% if project.cover_image %}
-                        <img src="{{ url_for('static', filename=project.cover_image) }}" alt="" loading="lazy" decoding="async">
+                        <img src="{{ url_for('static', filename=project.cover_image) }}" alt="{{ project.cover_alt }}" loading="lazy" decoding="async">
                     {% endif %}
                     <span class="preview-label">{{ project.category }}</span>
                     <strong>{{ project.title }}</strong>
                 </div>
                 <div class="project-card__content">
                     <p class="project-meta">{{ project.category }} · {{ project.year }}</p>
+                    {% if project.get('badge') %}<span class="project-card__badge">{{ project.badge }}</span>{% endif %}
                     <h3>{{ project.title }}</h3>
                     <p>{{ project.summary }}</p>
-                    <a class="text-link" href="{{ url_for('project_detail', slug=project.slug) }}">Open project <span aria-hidden="true">↗</span></a>
+                    {% if project.get('tags') %}
+                        <ul class="project-card__tags" aria-label="Technologies and project type">
+                            {% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}
+                        </ul>
+                    {% endif %}
+                    <a class="text-link" href="{{ url_for('project_detail', slug=project.slug) }}">{{ project.get('card_action_label', 'Open project') }} <span aria-hidden="true">↗</span></a>
                 </div>
             </article>
         {% endfor %}

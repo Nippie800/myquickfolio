@@ -620,6 +620,32 @@ em {
     margin-top: 0;
 }
 
+.project-grid--featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.project-grid--featured .project-card--featured {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(20rem, 0.55fr);
+}
+
+.project-card--featured .project-card__bar {
+    grid-column: 1 / -1;
+}
+
+.project-card--featured .project-card__preview {
+    min-height: 30rem;
+    border-right: var(--line);
+    border-bottom: 0;
+}
+
+.project-card--featured .project-card__content {
+    min-height: 30rem;
+}
+
 .project-card {
     overflow: hidden;
     border: var(--line);
@@ -761,6 +787,44 @@ em {
     line-height: 1.65;
 }
 
+.project-card__badge {
+    width: fit-content;
+    margin-top: var(--space-3);
+    padding: 0.4rem 0.7rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-pill);
+    background: var(--project-accent);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.project-card__tags {
+    margin: var(--space-3) 0 var(--space-4);
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    list-style: none;
+}
+
+.project-card__tags li {
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-pill);
+    font-size: 0.68rem;
+    font-weight: 750;
+}
+
+.project-card--master-plan-operations-system .project-card__preview--image::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.02) 58%);
+}
+
+.project-card--master-plan-operations-system .project-card__preview--image img {
+    object-position: center;
+}
+
 .text-link {
     width: fit-content;
     margin-top: auto;
@@ -891,12 +955,34 @@ em {
     line-height: 0.82;
 }
 
-.case-hero__heading > p:last-child {
+.case-hero__heading > .case-summary {
     max-width: 40rem;
     margin: var(--space-5) 0 0;
     color: var(--muted);
     font-size: clamp(1.05rem, 1.8vw, 1.3rem);
     line-height: 1.7;
+}
+
+.privacy-notice {
+    max-width: 44rem;
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--project-accent) 32%, var(--surface));
+}
+
+.privacy-notice strong {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.privacy-notice p {
+    margin: var(--space-1) 0 0;
+    color: var(--ink);
+    font-size: 0.9rem;
+    line-height: 1.55;
 }
 
 .case-hero__art {
@@ -1126,6 +1212,10 @@ em {
     line-height: 1.65;
 }
 
+.case-prose .case-lead + .case-lead {
+    margin-top: var(--space-3);
+}
+
 .case-section__content--split {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.7fr);
@@ -1207,6 +1297,40 @@ em {
     line-height: 1.7;
 }
 
+.capability-list,
+.contribution-list {
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    list-style: none;
+}
+
+.capability-list li,
+.contribution-list li {
+    min-height: 4.25rem;
+    padding: var(--space-3) var(--space-4) var(--space-3) 2.1rem;
+    border-top: 1.5px solid var(--ink);
+    position: relative;
+    line-height: 1.5;
+}
+
+.capability-list li::before,
+.contribution-list li::before {
+    content: "✓";
+    position: absolute;
+    top: var(--space-3);
+    left: 0;
+    color: var(--project-accent);
+    font-weight: 900;
+}
+
+.capability-list li:nth-last-child(-n + 2),
+.contribution-list li:nth-last-child(-n + 2) {
+    border-bottom: 1.5px solid var(--ink);
+}
+
 .case-gallery {
     padding: var(--space-8) max(1.25rem, calc((100% - var(--content)) / 2));
     color: var(--surface);
@@ -1268,6 +1392,96 @@ em {
     height: 100%;
     object-fit: cover;
     object-position: top center;
+}
+
+.visual-card__trigger {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.visual-card__trigger:focus-visible {
+    outline: 4px solid var(--project-accent);
+    outline-offset: -6px;
+}
+
+.image-lightbox {
+    width: min(96vw, 96rem);
+    max-width: none;
+    max-height: 94vh;
+    padding: 0;
+    overflow: visible;
+    border: var(--line);
+    border-radius: var(--radius-md);
+    color: var(--surface);
+    background: var(--ink);
+    box-shadow: 10px 10px 0 var(--project-accent);
+}
+
+.image-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+}
+
+.image-lightbox__panel {
+    position: relative;
+    padding: 3.25rem var(--space-3) var(--space-3);
+}
+
+.image-lightbox__panel > img {
+    display: block;
+    width: 100%;
+    max-height: calc(94vh - 8rem);
+    object-fit: contain;
+}
+
+.image-lightbox__close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    padding: 0.5rem 0.8rem;
+    border: 1.5px solid var(--surface);
+    border-radius: var(--radius-pill);
+    color: var(--surface);
+    background: var(--ink);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.image-lightbox__caption {
+    padding-top: var(--space-3);
+}
+
+.image-lightbox__caption p {
+    margin: 0.3rem 0 0;
+    color: #aaa69f;
+}
+
+/* Master Plan: give the private operational system maximum visual clarity. */
+.case-study--master-plan-operations-system .case-hero {
+    grid-template-columns: minmax(18rem, 0.64fr) minmax(34rem, 1.36fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.case-study--master-plan-operations-system .case-hero__heading h1 {
+    max-width: 38rem;
+    font-size: clamp(3.5rem, 6.5vw, 6.5rem);
+    line-height: 0.88;
+}
+
+.case-study--master-plan-operations-system .case-hero__art.case-hero__art--image,
+.case-study--master-plan-operations-system .visual-card__canvas--screenshot {
+    aspect-ratio: 1728 / 914;
+    background: #f5f6f8;
+}
+
+.case-study--master-plan-operations-system .case-hero__art--image img,
+.case-study--master-plan-operations-system .visual-card__canvas--screenshot img {
+    object-fit: contain;
 }
 
 .visual-card__canvas > span {
@@ -1625,6 +1839,20 @@ em {
         grid-template-columns: 1fr 1fr;
     }
 
+    .project-grid--featured .project-card--featured {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card--featured .project-card__preview {
+        min-height: 25rem;
+        border-right: 0;
+        border-bottom: var(--line);
+    }
+
+    .project-card--featured .project-card__content {
+        min-height: 18rem;
+    }
+
     .project-card:nth-child(2),
     .project-card:nth-child(3) {
         margin-top: 0;
@@ -1653,6 +1881,15 @@ em {
 
     .case-hero {
         grid-template-columns: 1fr;
+    }
+
+    .case-study--master-plan-operations-system .case-hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .case-study--master-plan-operations-system .case-hero__art {
+        width: 100%;
     }
 
     .case-study--fox-fish-dive .case-hero {
@@ -1739,6 +1976,10 @@ em {
         grid-template-columns: 1fr;
     }
 
+    .project-card--featured .project-card__preview {
+        min-height: 17rem;
+    }
+
     .folder:last-child,
     .project-card:nth-child(3),
     .project-information > :first-child {
@@ -1812,6 +2053,26 @@ em {
 
     .process-list article {
         grid-template-columns: 2.5rem 1fr;
+    }
+
+    .capability-list,
+    .contribution-list {
+        grid-template-columns: 1fr;
+    }
+
+    .capability-list li:nth-last-child(-n + 2),
+    .contribution-list li:nth-last-child(-n + 2) {
+        border-bottom: 0;
+    }
+
+    .capability-list li:last-child,
+    .contribution-list li:last-child {
+        border-bottom: 1.5px solid var(--ink);
+    }
+
+    .image-lightbox {
+        width: calc(100vw - 1rem);
+        box-shadow: 5px 5px 0 var(--project-accent);
     }
 
     .visual-card__canvas {

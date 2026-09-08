@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}{{ project.title }} — Annele Ndlovu{% endblock %}
-{% block meta_description %}{{ project.summary }} Case study by Annele Ndlovu.{% endblock %}
+{% block title %}{{ project.get('seo_title', project.title ~ ' — Annele Ndlovu') }}{% endblock %}
+{% block meta_description %}{{ project.get('seo_description', project.summary ~ ' Case study by Annele Ndlovu.') }}{% endblock %}
 {% block og_type %}article{% endblock %}
-{% block og_title %}{{ project.title }} — Annele Ndlovu{% endblock %}
-{% block og_description %}{{ project.summary }}{% endblock %}
+{% block og_title %}{{ project.get('seo_title', project.title ~ ' — Annele Ndlovu') }}{% endblock %}
+{% block og_description %}{{ project.get('seo_description', project.summary) }}{% endblock %}
 {% block og_image_alt %}{{ project.cover_alt or (project.title ~ ' project cover') }}{% endblock %}
-{% block twitter_title %}{{ project.title }} — Annele Ndlovu{% endblock %}
-{% block twitter_description %}{{ project.summary }}{% endblock %}
+{% block twitter_title %}{{ project.get('seo_title', project.title ~ ' — Annele Ndlovu') }}{% endblock %}
+{% block twitter_description %}{{ project.get('seo_description', project.summary) }}{% endblock %}
 {% block section_status %}Case study{% endblock %}
 
 {% block content %}
@@ -18,9 +18,12 @@
         <div class="case-hero__heading">
             <p class="eyebrow">{{ project.category }} · {{ project.year }}</p>
             <h1>{{ project.title }}</h1>
-            <p>{{ project.summary }}</p>
+            <p class="case-summary">{{ project.summary }}</p>
             {% if project.get('featured_cta_label') and project.live_url %}
                 <a class="case-hero__cta" href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">{{ project.featured_cta_label }} <span aria-hidden="true">↗</span></a>
+            {% endif %}
+            {% if project.get('privacy_notice') %}
+                <aside class="privacy-notice"><strong>Private client system</strong><p>{{ project.privacy_notice }}</p></aside>
             {% endif %}
         </div>
 
@@ -50,7 +53,13 @@
         <div class="case-section__label"><span>01</span><p>Overview</p></div>
         <div class="case-section__content">
             <h2 id="overview-title">The project,<br><em>in plain language.</em></h2>
-            <p class="case-lead">{{ project.description }}</p>
+            {% if project.get('introduction') %}
+                <div class="case-prose">
+                    {% for paragraph in project.introduction %}<p class="case-lead">{{ paragraph }}</p>{% endfor %}
+                </div>
+            {% else %}
+                <p class="case-lead">{{ project.description }}</p>
+            {% endif %}
         </div>
     </section>
 
@@ -72,9 +81,14 @@
     </section>
 
     <section class="case-section" aria-labelledby="process-title">
-        <div class="case-section__label"><span>03</span><p>The process</p></div>
+        <div class="case-section__label"><span>03</span><p>{{ project.get('approach_label', 'The process') }}</p></div>
         <div class="case-section__content">
-            <h2 id="process-title">A deliberate path<br><em>from idea to outcome.</em></h2>
+            {% if project.get('approach_heading') %}
+                <h2 id="process-title">{{ project.approach_heading }}</h2>
+            {% else %}
+                <h2 id="process-title">A deliberate path<br><em>from idea to outcome.</em></h2>
+            {% endif %}
+            {% if project.get('solution') %}<p class="case-lead">{{ project.solution }}</p>{% endif %}
             <div class="process-list" role="list">
                 {% for step in project.approach %}
                     <article role="listitem">
@@ -85,6 +99,28 @@
             </div>
         </div>
     </section>
+
+    {% if project.get('capabilities') %}
+    <section class="case-section" aria-labelledby="capabilities-title">
+        <div class="case-section__label"><span>04</span><p>Core capabilities</p></div>
+        <div class="case-section__content">
+            <h2 id="capabilities-title">Built around<br><em>real operations.</em></h2>
+            <ul class="capability-list">
+                {% for capability in project.capabilities %}<li>{{ capability }}</li>{% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="contribution-title">
+        <div class="case-section__label"><span>05</span><p>My contribution</p></div>
+        <div class="case-section__content">
+            <h2 id="contribution-title">From workflow<br><em>to working system.</em></h2>
+            <ul class="contribution-list">
+                {% for item in project.contribution %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
 
     <section class="case-gallery" aria-labelledby="gallery-title">
         <div class="case-gallery__heading">
@@ -97,7 +133,13 @@
                 <figure class="visual-card{% if visual.image %} visual-card--screenshot{% endif %}">
                     {% if visual.image %}
                         <div class="visual-card__canvas visual-card__canvas--screenshot">
-                            <img src="{{ url_for('static', filename=visual.image) }}" alt="{{ visual.alt }}" loading="lazy" decoding="async">
+                            {% if project.get('enable_lightbox') %}
+                                <button class="visual-card__trigger" type="button" data-lightbox-src="{{ url_for('static', filename=visual.image) }}" data-lightbox-alt="{{ visual.alt }}" data-lightbox-title="{{ visual.title }}" data-lightbox-caption="{{ visual.caption }}" aria-label="Open {{ visual.title }} image preview">
+                                    <img src="{{ url_for('static', filename=visual.image) }}" alt="{{ visual.alt }}" loading="lazy" decoding="async">
+                                </button>
+                            {% else %}
+                                <img src="{{ url_for('static', filename=visual.image) }}" alt="{{ visual.alt }}" loading="lazy" decoding="async">
+                            {% endif %}
                         </div>
                     {% else %}
                         <div class="visual-card__canvas" aria-hidden="true">
@@ -110,10 +152,19 @@
                 </figure>
             {% endfor %}
         </div>
+        {% if project.get('enable_lightbox') %}
+            <dialog class="image-lightbox" id="image-lightbox" aria-labelledby="lightbox-title">
+                <div class="image-lightbox__panel">
+                    <button class="image-lightbox__close" type="button" data-lightbox-close aria-label="Close image preview">Close</button>
+                    <img src="" alt="" data-lightbox-image>
+                    <div class="image-lightbox__caption"><strong id="lightbox-title" data-lightbox-title></strong><p data-lightbox-caption></p></div>
+                </div>
+            </dialog>
+        {% endif %}
     </section>
 
     <section class="case-section" aria-labelledby="outcome-title">
-        <div class="case-section__label"><span>04</span><p>Outcome</p></div>
+        <div class="case-section__label"><span>{{ '06' if project.get('capabilities') else '04' }}</span><p>Outcome</p></div>
         <div class="case-section__content case-section__content--split">
             <h2 id="outcome-title">What changed<br><em>after launch.</em></h2>
             <p class="case-lead">{{ project.outcome }}</p>
@@ -121,7 +172,7 @@
     </section>
 
     <section class="case-section" aria-labelledby="reflection-title">
-        <div class="case-section__label"><span>05</span><p>Reflection</p></div>
+        <div class="case-section__label"><span>{{ '07' if project.get('capabilities') else '05' }}</span><p>Reflection</p></div>
         <div class="case-section__content case-section__content--split">
             <h2 id="reflection-title">What this project<br><em>taught me.</em></h2>
             <div>

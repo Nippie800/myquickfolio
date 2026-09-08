@@ -261,6 +261,43 @@ function initialiseCopyEmail() {
     });
 }
 
+function initialiseImageLightbox() {
+    const lightbox = document.querySelector("#image-lightbox");
+    if (!(lightbox instanceof HTMLDialogElement)) return;
+
+    const image = lightbox.querySelector("[data-lightbox-image]");
+    const title = lightbox.querySelector("[data-lightbox-title]");
+    const caption = lightbox.querySelector("[data-lightbox-caption]");
+    const closeButton = lightbox.querySelector("[data-lightbox-close]");
+    let previousFocus = null;
+
+    function closeLightbox() {
+        if (lightbox.open) lightbox.close();
+    }
+
+    document.querySelectorAll("[data-lightbox-src]").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+            if (!(image instanceof HTMLImageElement)) return;
+            previousFocus = trigger;
+            image.src = trigger.dataset.lightboxSrc || "";
+            image.alt = trigger.dataset.lightboxAlt || "";
+            if (title) title.textContent = trigger.dataset.lightboxTitle || "Image preview";
+            if (caption) caption.textContent = trigger.dataset.lightboxCaption || "";
+            lightbox.showModal();
+            closeButton?.focus();
+        });
+    });
+
+    closeButton?.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener("close", () => {
+        if (image instanceof HTMLImageElement) image.src = "";
+        previousFocus?.focus();
+    });
+}
+
 function initialisePageTransitions() {
     document
         .querySelectorAll(".project-card a[href], .project-pagination a[href], .back-link[href]")
@@ -366,6 +403,7 @@ initialiseSectionStatus();
 initialiseFolderCards();
 initialiseCardTilt();
 initialiseCopyEmail();
+initialiseImageLightbox();
 initialisePageTransitions();
 initialiseDeveloperConsole();
 

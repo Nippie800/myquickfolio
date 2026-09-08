@@ -1,5 +1,155 @@
 [
     {
+        "slug": "master-plan-operations-system",
+        "title": "Master Plan Operations System",
+        "category": "Private Client System",
+        "year": "2026",
+        "summary": "A secure legal-operations platform that centralises estate matters, documents, compliance requirements, tasks, deadlines and audit activity for a Johannesburg law practice.",
+        "description": "Master Plan Operations System is a secure internal platform developed for a Johannesburg legal practice. It replaces fragmented case administration with a central workspace for estate matters, documents, compliance requirements, tasks, deadlines and operational history.",
+        "introduction": [
+            "Master Plan Operations System is a secure internal platform developed for a Johannesburg legal practice. It replaces fragmented case administration with a central workspace for estate matters, documents, compliance requirements, tasks, deadlines and operational history.",
+            "I led the project, workflow analysis, system design, frontend and backend development, database structure, Firebase security implementation and deployment. Phases 1–2 have been delivered, while Phase 3 remains in active development."
+        ],
+        "role": "Sole Software Developer and Systems Designer",
+        "duration": "Ongoing client engagement",
+        "status": "Phases 1–2 delivered · Phase 3 active",
+        "theme": "yellow",
+        "featured": true,
+        "badge": "Private Client System",
+        "card_action_label": "View Case Study",
+        "tags": ["Next.js", "TypeScript", "Firebase", "Business Systems"],
+        "cover_image": "images/projects/master-plan/operations-dashboard.png",
+        "cover_alt": "Sanitised Master Plan operations dashboard showing demo matters, deadlines and attention items.",
+        "seo_title": "Master Plan Operations System | Annele Ndlovu",
+        "seo_description": "A private legal-operations platform designed and developed by Annele Ndlovu using Next.js, TypeScript and Firebase.",
+        "privacy_notice": "This system contains confidential legal and operational information. Public login access, production data and source code are intentionally unavailable. All portfolio images use demonstration or appropriately redacted information.",
+        "technologies": [
+            "Next.js 16",
+            "React",
+            "TypeScript",
+            "Firebase Authentication",
+            "Cloud Firestore",
+            "Firebase Storage",
+            "Tailwind CSS",
+            "Vercel",
+            "Git",
+            "GitHub"
+        ],
+        "challenge": "The practice previously relied on physical and scanned documents, separate communication channels and manual task tracking. This made it difficult to maintain a consistent view of each matter, monitor outstanding information and documents, coordinate responsibilities and review the history of operational changes.",
+        "solution": "I designed a central legal-operations workspace that structures every matter from initial intake through document collection, compliance preparation and submission. The platform gives authorised staff a shared operational view while maintaining role-based access and a traceable history of important actions.",
+        "approach_label": "The solution",
+        "approach_heading": "One workspace, from intake to audit trail.",
+        "approach": [
+            {
+                "title": "Model the real workflow",
+                "description": "Translated the practice’s manual legal processes into structured matter, document, task, deadline and compliance requirements."
+            },
+            {
+                "title": "Design secure access",
+                "description": "Created approved-user authentication and role-based behaviour for administrators and staff using Firebase services."
+            },
+            {
+                "title": "Build operational clarity",
+                "description": "Developed shared dashboards, flexible intake, document packages, readiness controls, notifications and traceable case activity."
+            },
+            {
+                "title": "Deliver in stable phases",
+                "description": "Tested, debugged and refined the platform through client feedback, delivering Phases 1–2 while continuing Phase 3 without disrupting the operational foundation."
+            }
+        ],
+        "highlights": [
+            {
+                "value": "2 phases",
+                "label": "Delivered as the secure operational foundation"
+            },
+            {
+                "value": "Role-based",
+                "label": "Approved access for administrators and staff"
+            },
+            {
+                "value": "Phase 3",
+                "label": "Currently in active development"
+            }
+        ],
+        "capabilities": [
+            "Secure email-and-password authentication",
+            "Approved-user access",
+            "Administrator and staff roles",
+            "Role-based permissions",
+            "Estate and matter management",
+            "Flexible intake with outstanding-information tracking",
+            "Duplicate detection using estate or ID numbers",
+            "Task creation, assignment and status tracking",
+            "Deadline and attention monitoring",
+            "Document uploads and supporting-document packages",
+            "Document replacement and version history",
+            "Compliance readiness tracking",
+            "Notifications",
+            "Case timelines and audit logging",
+            "Responsive desktop and mobile interface"
+        ],
+        "contribution": [
+            "Translated the client’s manual legal workflows into system requirements.",
+            "Designed the application structure and user experience.",
+            "Built the frontend with Next.js, React, TypeScript and Tailwind CSS.",
+            "Implemented authentication, application data and document storage with Firebase.",
+            "Created role-based behaviour for administrators and staff.",
+            "Developed operational dashboards, workflows, compliance tracking and audit records.",
+            "Managed testing, debugging, deployment and iterative client feedback.",
+            "Used AI-assisted development while verifying output through testing, debugging and manual review."
+        ],
+        "gallery_heading": "The operational system",
+        "enable_lightbox": true,
+        "visuals": [
+            {
+                "label": "Live overview",
+                "title": "Operations Dashboard",
+                "caption": "A central dashboard providing a live overview of active matters, deadlines, task progress and items requiring staff attention.",
+                "image": "images/projects/master-plan/operations-dashboard.png",
+                "alt": "Sanitised operations dashboard with demo matter totals, deadline monitoring and staff attention panels."
+            },
+            {
+                "label": "Matter workspace",
+                "title": "Case Workspace",
+                "caption": "A structured matter workspace bringing estate information, documents, compliance, workflows, queries, instructions, deadlines, tasks and history into one location.",
+                "image": "images/projects/master-plan/case-workspace.png",
+                "alt": "Sanitised case workspace showing demo estate information, navigation tabs and operational status."
+            },
+            {
+                "label": "Progressive intake",
+                "title": "Flexible Case Intake",
+                "caption": "A flexible intake workflow allows staff to open a matter with an estate number or deceased ID number and complete outstanding information later.",
+                "image": "images/projects/master-plan/flexible-case-intake.png",
+                "alt": "Sanitised edit-case dialog showing flexible demo estate intake fields and validation guidance."
+            },
+            {
+                "label": "Document control",
+                "title": "Document Packages",
+                "caption": "Document packages track main and supporting files, outstanding requirements, replacements and document-version history.",
+                "image": "images/projects/master-plan/document-packages.png",
+                "alt": "Sanitised document package interface showing received and outstanding demo document requirements."
+            },
+            {
+                "label": "Readiness control",
+                "title": "Compliance Checklist",
+                "caption": "Submission-readiness controls organise legal requirements into measurable compliance groups with live completion tracking.",
+                "image": "images/projects/master-plan/compliance-checklist.png",
+                "alt": "Sanitised compliance checklist showing demo document groups and completion progress."
+            },
+            {
+                "label": "Traceable history",
+                "title": "Case Timeline and Audit Trail",
+                "caption": "An automated timeline records document activity, deadlines and workflow changes to support accountability and operational traceability.",
+                "image": "images/projects/master-plan/case-timeline.png",
+                "alt": "Sanitised case timeline showing demo staff actions and neutralised timestamps."
+            }
+        ],
+        "outcome": "Phases 1–2 established the platform’s secure operational foundation and core case-management workflows. The practice can manage matters, tasks, documents, compliance progress and operational history within one central system. Phase 3 is currently extending the product while preserving the privacy and stability of the delivered foundation.",
+        "reflection": "The project strengthened my ability to translate specialised operational workflows into a secure, maintainable product. Privacy, role clarity and traceability shaped every design and engineering decision.",
+        "source_url": "",
+        "live_url": ""
+    },
+    {
         "slug": "quickfolio",
         "title": "Quickfolio",
         "category": "Web Development",
